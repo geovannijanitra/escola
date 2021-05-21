@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGurubkTable extends Migration
+class CreateKegiatanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateGurubkTable extends Migration
      */
     public function up()
     {
-        Schema::create('gurubk', function (Blueprint $table) {
-            $table->increments('idGurubk');
-            $table->string('nama');
-            $table->string('notelp');
-            $table->string('tempat');
-            $table->string('tgllahir');
-            $table->string('kelas');
+        Schema::create('kegiatan', function (Blueprint $table) {
+            $table->increments('idKegiatan');
+            $table->string('judul');
+            $table->string('deskripsi');
+            $table->string('gambar');
+
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateGurubkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gurubk');
+        Schema::dropIfExists('kegiatan');
     }
 }

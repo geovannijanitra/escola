@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Gurumapel;
+use App\User;
+use App\Mapel;
 use Illuminate\Http\Request;
 
 class GurumapelController extends Controller
@@ -25,7 +27,9 @@ class GurumapelController extends Controller
      */
     public function create()
     {
-        return view('gurumapel.create');
+        $mapel=Mapel::all();
+        $user=User::all();
+        return view('gurumapel.create', compact('user','mapel'));
     }
 
     /**
@@ -37,6 +41,8 @@ class GurumapelController extends Controller
     public function store(Request $request)
     {
         Gurumapel::create([
+            'mapel_id'=>$request->idMapel,
+            'user_id'=>$request->idUser,
             'nama' => $request->nama,
             'notelp' => $request->notelp,
             'tempat' => $request->tempat,
@@ -66,8 +72,10 @@ class GurumapelController extends Controller
      */
     public function edit($id)
     {
+        $mapel=Mapel::all();
+        $user=User::all();
         $gurumapel=Gurumapel::find($id);
-        return view ('gurumapel.update', compact('gurumapel'));
+        return view ('gurumapel.update', compact('gurumapel','user','mapel'));
     }
 
     /**
@@ -80,7 +88,8 @@ class GurumapelController extends Controller
     public function update(Request $request,  $id)
     {
         Gurumapel::where('idGurumapel', $id)->update([
-            
+            'mapel_id'=>$request->idMapel,
+            'user_id'=>$request->idUser,
             'nama' => $request->nama,
             'notelp' => $request->notelp,
             'tempat' => $request->tempat,

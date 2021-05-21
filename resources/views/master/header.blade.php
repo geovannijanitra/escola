@@ -50,34 +50,37 @@
             <li class="dropdown active">
               <a href="/" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
+
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Data Master</span></a>
+                  data-feather="briefcase"></i><span>Kelola Dashboard</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="widget-chart.html">Data User</a></li>
-                <li><a class="nav-link" href="/gurumapel">Data Guru Mata Pelajaran</a></li>
-                <li><a class="nav-link" href="/gurubk">Data Guru BK</a></li>
+                <li><a class="nav-link" href="/user">Data Kegiatan</a></li>
+                <li><a class="nav-link" href="/pengumuman">Data Pengumuman</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                  data-feather="briefcase"></i><span>Data Sekolah</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/user">Data User</a></li>
                 <li><a class="nav-link" href="/siswa">Data Siswa</a></li>
-                <li><a class="nav-link" href="/walimurid">Data Wali Murid</a></li>
+                <li><a class="nav-link" href="/gurumapel">Data Guru</a></li>
                 <li><a class="nav-link" href="/mapel">Data Mata Pelajaran</a></li>
-                <li><a class="nav-link" href="/pointbk">Data Point BK</a></li>
               </ul>
             </li>
+            
             <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Penilaian</span></a>
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Pembelajaran</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="chat.html">Nilai Mata Pelajaran</a></li>
-                <li><a class="nav-link" href="portfolio.html">Nilai Point BK</a></li>
+                <li><a class="nav-link" href="/nilai">Tugas</a></li>
+                <li><a class="nav-link" href="/nilai">Hasil Tugas</a></li>
+                <li><a class="nav-link" href="/score">Data Nilai</a></li>
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Masukan</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/kritik">Kritik dan Saran</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="col-sm-6 col-md-4 col-lg-3"><i class="material-icons">forum</i>Pengumuman</a>
+            <li>
+              <a href="/kritik" class=" nav-link "><i data-feather="mail"></i><span>Kritik dan Saran</span></a>
             </li>
           </ul>
         </aside>

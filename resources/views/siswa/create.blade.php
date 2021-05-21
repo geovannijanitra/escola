@@ -13,6 +13,14 @@
                 <form class="form-horizontal" method="POST" action="{{url('/siswa')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label>Nama </label>
+                        <select class="form-control select2" id="idUser" name="idUser" >
+                        @foreach ($user as $user)
+                        <option value="{{$user->idUser}}"> {{$user->email}} </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Nama</label>
                         <input id="nama" name="nama" type="text" class="form-control">
                     </div>

@@ -13,6 +13,22 @@
                 <form class="form-horizontal" method="POST" action="{{url('/gurumapel')}}" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group">
+                        <label>Username </label>
+                        <select class="form-control select2" id="idUser" name="idUser" >
+                        @foreach ($user as $user)
+                        <option value="{{$user->idUser}}"> {{$user->email}} </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mata Pelajaran </label>
+                        <select class="form-control select2" id="idMapel" name="idMapel" >
+                        @foreach ($mapel as $mapel)
+                        <option value="{{$mapel->idMapel}}"> {{$mapel->matkul}} </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>

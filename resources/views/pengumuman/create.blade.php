@@ -17,10 +17,16 @@
                                     <label>Judul</label>
                                     <input type="text" class="form-control" id="judul" name="judul" required>
                                 </div>
-                                <label>File</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="file" name="file" required>
-                                    <label class="custom-file-label" for="file">Choose file</label>
+                                <div class="form-group">
+                                    <label>File</label>
+                                    
+                                        <input type="file" class="form-control" id="file" name="file" required>
+                                    
+                                </div>
+
+                                <div class="button  pull-right">
+                                    <br><button type="submit" class="btn btn-outline-success">Simpan</button>
+                                    <a href="/pengumuman" class="btn btn-outline-danger">Batal</a>
                                 </div>
                             </form>
                         </div>

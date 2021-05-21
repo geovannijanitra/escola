@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Gurumapel;
-use App\Mapel;
+use App\Kegiatan;
 use Illuminate\Http\Request;
 
-class MapelController extends Controller
+class KegiatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $mapel = Mapel::all();
-        return view('mapel.read', compact('mapel'));
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        return view('mapel.create');
+        //
     }
 
     /**
@@ -37,19 +35,16 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        Mapel::create([
-            'matkul'=>$request->matkul,
-        ]);
-        return redirect('/mapel');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function show(Mapel $mapel)
+    public function show(Kegiatan $kegiatan)
     {
         //
     }
@@ -57,39 +52,34 @@ class MapelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mapel $id)
+    public function edit(Kegiatan $kegiatan)
     {
-        $mapel=Mapel::find($id);
-        return view ('mapel.update', compact('mapel'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kegiatan $kegiatan)
     {
-        Mapel::where('idMapel', $id)->update([
-            'matkul' => $request->matkul,
-        ]);
-        return redirect('mapel');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Kegiatan  $kegiatan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mapel $mapel)
+    public function destroy(Kegiatan $kegiatan)
     {
-        Mapel::destroy($mapel->idMapel);
-        return redirect('/mapel');
+        //
     }
 }

@@ -8,9 +8,14 @@ class Siswa extends Model
 {
     protected $table ='siswa';
     protected $primaryKey ='idSiswa';
-    protected $fillable = ['nama', 'alamat', 'tempat','tgllahir' ,'kelamin' ,'kelas'];
+    protected $fillable = ['user_id','nama', 'alamat', 'tempat','tgllahir' ,'kelamin' ,'kelas'];
 
-    public function walimurid(){
-        return $this->hasOne('App\Walimurid', 'siswa_id');
+    
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
     }
+    public function score(){
+        return $this->hasMany('App\Score', 'siswa_id');
+    }
+
 }

@@ -15,9 +15,6 @@ class CreateMapelTable extends Migration
     {
         Schema::create('mapel', function (Blueprint $table) {
             $table->increments('idMapel')->unsigned();
-            $table->integer('gurumapel_id')->unsigned();
-            $table->foreign('gurumapel_id')->references('idGurumapel')->on('gurumapel')->onUpdate('cascade');
-            $table->string('kode');
             $table->string('matkul');
             $table->timestamps();
         });

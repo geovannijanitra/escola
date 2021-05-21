@@ -14,6 +14,14 @@
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
+                        <label>Nama </label>
+                        <select class="form-control select2" id="idUser" name="idUser" >
+                        @foreach ($user as $user)
+                        <option value="{{$user->idUser}}"> {{$user->email}} </option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Nama</label>
                         <input type="text" class="form-control" value="{{$siswa->nama}}" id="nama" name="nama">
                     </div>

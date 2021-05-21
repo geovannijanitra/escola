@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Pointbk;
+use App\Score;
+use App\Siswa;
+use App\Mapel;
 use Illuminate\Http\Request;
 
-class PointbkController extends Controller
+class ScoreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,10 @@ class PointbkController extends Controller
      */
     public function index()
     {
-        $pointbk = Pointbk::all();
-        return view('pointbk.read', compact('pointbk'));
+        $score=Score::all();
+        $siswa=Siswa::all();
+        $mapel=Mapel::all();
+        return view('score.read', compact('score','mapel','siswa'));
     }
 
     /**
@@ -25,7 +29,10 @@ class PointbkController extends Controller
      */
     public function create()
     {
-        return view('pointbk.create');
+        
+        $siswa=Siswa::all();
+        $mapel=Mapel::all();
+        return view('score.create', compact('score','mapel','siswa'));
     }
 
     /**
@@ -36,21 +43,23 @@ class PointbkController extends Controller
      */
     public function store(Request $request)
     {
-        Pointbk::create([
-            'jenis' => $request->jenis,
-            'pelanggaran' => $request->pelanggaran,
-            'point' => $request->point,
+        Score::create([
+            'mapel_id'=>$request->idMapel,
+            'siswa_id'=>$request->idSiswa,
+            'nilai' => $request->nilai,
+
         ]);
-        return redirect('/pointbk');
+
+        return redirect('/score');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pointbk  $pointbk
+     * @param  \App\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function show(Pointbk $pointbk)
+    public function show(Score $score)
     {
         //
     }
@@ -58,43 +67,44 @@ class PointbkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pointbk  $pointbk
+     * @param  \App\Score  $score
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $pointbk=Pointbk::find($id);
-        return view ('pointbk.update', compact('pointbk'));
+        $score=Score::find($id);
+        $siswa=Siswa::all();
+        $mapel=Mapel::all();
+        return view('score.update', compact('score','mapel','siswa')); 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pointbk  $pointbk
+     * @param  \App\Score  $score
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        Pointbk::where('idPointbk', $id)->update([
-            
-            'jenis' => $request->jenis,
-            'pelanggaran' => $request->pelanggaran,
-            'point' => $request->point,
-
+        Score::where('idScore', $id)->update([
+            'mapel_id'=>$request->idMapel,
+            'siswa_id'=>$request->idSiswa,
+            'nilai' => $request->nilai,
         ]);
-        return redirect('pointbk');
+
+        return redirect('/score');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pointbk  $pointbk
+     * @param  \App\Score  $score
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pointbk $pointbk)
+    public function destroy(Score $score)
     {
-        Pointbk::destroy($pointbk->idPointbk);
-        return redirect('/pointbk');
+        Score::destroy($score->idScore);
+        return redirect('/score');
     }
 }

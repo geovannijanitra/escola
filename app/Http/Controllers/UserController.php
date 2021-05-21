@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Gurubk;
+use App\User;
+use App\Gurumapel;
 use Illuminate\Http\Request;
 
-class GurubkController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class GurubkController extends Controller
      */
     public function index()
     {
-        $gurubk = Gurubk::all();
-        return view('gurubk.read', compact('gurubk'));
+        $user = User::all();
+        $gurumapel = Gurumapel::all();
+        return view('user.read', compact('user','gurumapel'));
     }
 
     /**
@@ -25,7 +27,8 @@ class GurubkController extends Controller
      */
     public function create()
     {
-        return view('gurubk.create');
+        $gurumapel = Gurumapel::all();
+        return view('user.create', compact('gurumapel'));
     }
 
     /**
@@ -36,25 +39,21 @@ class GurubkController extends Controller
      */
     public function store(Request $request)
     {
-        Gurubk::create([
-            'nama' => $request->nama,
-            'notelp' => $request->notelp,
-            'tempat' => $request->tempat,
-            'tgllahir' => $request->tgllahir,
-            'kelas' => $request->kelas,
-
+        User::create([
+            'level'=>$request->level,
+            'email'=>$request->email,
+            'password'=>$request->password,
         ]);
-
-        return redirect('/gurubk');
+        return redirect('/user');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gurubk  $gurubk
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Gurubk $gurubk)
+    public function show(User $user)
     {
         //
     }
@@ -62,45 +61,42 @@ class GurubkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Gurubk  $gurubk
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $gurubk=Gurubk::find($id);
-        return view ('gurubk.update', compact('gurubk'));
+        $gurumapel = Gurumapel::all();
+        $user=User::find($id);
+        return view ('user.update', compact('user','gurumapel'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gurubk  $gurubk
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        Gurubk::where('idGurubk', $id)->update([
-            
-            'nama' => $request->nama,
-            'notelp' => $request->notelp,
-            'tempat' => $request->tempat,
-            'tgllahir' => $request->tgllahir,
-            'kelas' => $request->kelas,
-
+        User::where('idUser', $id)->update([
+            'level' => $request->level,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
-        return redirect('gurubk');
+        return redirect('user');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gurubk  $gurubk
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gurubk $gurubk)
+    public function destroy(User $user)
     {
-        Gurubk::destroy($gurubk->idGurubk);
-        return redirect('/gurubk');
+        User::destroy($user->idUser);
+        return redirect('/user');
     }
 }

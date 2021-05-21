@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Siswa;
+use App\User;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -25,7 +26,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        $user=User::all();
+        return view('siswa.create', compact('user'));
     }
 
     /**
@@ -37,6 +39,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         Siswa::create([
+            'user_id'=>$request->idUser,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'tempat' => $request->tempat,
@@ -68,8 +71,9 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
+        $user=User::all();
         $siswa=Siswa::find($id);
-        return view ('siswa.update', compact('siswa'));
+        return view ('siswa.update', compact('siswa','user'));
     }
 
     /**
@@ -82,7 +86,7 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         Siswa::where('idSiswa', $id)->update([
-            
+            'user_id'=>$request->idUser,
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'tempat' => $request->tempat,

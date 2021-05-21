@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Otika - Admin Dashboard Template</title>
+  <title>Login</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('fn')}}/assets/css/app.min.css">
   <link rel="stylesheet" href="{{asset('fn')}}/assets/bundles/bootstrap-social/bootstrap-social.css">
@@ -59,7 +59,7 @@
                                     </span>
                                 @enderror
                   </div>
-                 
+                  
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Login

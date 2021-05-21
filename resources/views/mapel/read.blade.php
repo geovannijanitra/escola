@@ -19,7 +19,6 @@
                         <thead>
                           <tr>
                             <th>Action</th>
-                            <th>Pengajar</th>
                             <th>Kode Mata Pelajaran</th>
                             <th>Mata Pelajaran</th>
                           </tr>
@@ -28,17 +27,16 @@
                         @foreach ( $mapel as $mapel)
                           <tr>
                             <td>
-                              <a href="/mapel$mapel/{{ $mapel->idMapel }}/edit" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Ubah</a>
+                              <a href="/mapel/{{ $mapel->idMapel }}/edit" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Ubah</a>
                               
-                              <form action="/mapel$mapel/{{ $mapel->idMapel }}" method="post" class="d-inline">
+                              <form action="/mapel/{{ $mapel->idMapel }}" method="post" class="d-inline">
                               @method('delete')
                               @csrf 
                               <button type="submit" onclick="return confirm('Yakin?')" class="btn btn-icon icon-left btn-danger"><i class="fas fa-times"></i> Hapus</button>
                               </form>
                             </td>
                             
-                            <td>{{ $mapel->gurumapel->nama}}</td>
-                            <td>{{ $mapel->kode}}</td>
+                            <td>{{ $mapel->idMapel}}</td>
                             <td>{{ $mapel->matkul}}</td>
                            
                           </tr>

@@ -2,7 +2,7 @@
 
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-Route::resource('gurumapel','GurumapelController');
-Route::resource('gurubk','GurubkController');
-Route::resource('siswa','SiswaController');
-Route::resource('walimurid','WalimuridController');
-Route::resource('mapel','MapelController');
-Route::resource('pointbk','PointbkController');
-Route::resource('kritik','KritikController');
+
+// Route::get('/', function () {
+//     return view('home');
+// });
+Route::get('/', 'RedirectIfAuthenticatedController');
 Auth::routes();
 
+Route::middleware(['auth'])->group(function(){
+    
+Route::resource('gurumapel','GurumapelController');
+Route::resource('siswa','SiswaController');
+Route::resource('mapel','MapelController');
+Route::resource('kritik','KritikController');
+Route::resource('pengumuman','PengumumanController');
+Route::resource('user','UserController');
+Route::resource('score','ScoreController');
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/pengumuman', 'pengumuman.create');
+});
