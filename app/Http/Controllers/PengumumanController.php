@@ -39,14 +39,14 @@ class PengumumanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate( [
-            'file' => 'required|size:5120',
-        ]);
+        // $request->validate( [
+        //     'file' => 'required|size:5120',
+        // ]);
 
         $data = $request->except(['file']);
 
         $extension = $request->file->extension();
-        $filename = Uuid::uuid4(). ".($extension)";
+        $filename = Uuid::uuid4(). ".{$extension}";
         $request->file->storeAs('public/pengumuman', $filename);
         $data['file'] = asset("/storage/pengumuman/{$filename}");
 
@@ -86,9 +86,9 @@ class PengumumanController extends Controller
      */
     public function update(Request $request, Pengumuman $pengumuman)
     {
-        $request->validate([
-            'file' => 'required|file|size:5120',
-        ]);
+        // $request->validate([
+        //     'file' => 'required|file|size:5120',
+        // ]);
 
         $data = $request->except(['file']);
 
@@ -100,7 +100,8 @@ class PengumumanController extends Controller
             $request->file->storeAs('/public/pengumuman', $filename);
             $data['file'] = asset("/storage/pengumuman/{$filename}");
         }
-        Pengumuman::create($data);
+        $pengumuman->fill($data);
+        $pengumuman->save();
         return redirect('/pengumuman');
     }
 

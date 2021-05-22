@@ -55,14 +55,14 @@
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="briefcase"></i><span>Kelola Dashboard</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/user">Data Kegiatan</a></li>
+                <li><a class="nav-link" href="/kegiatan">Data Kegiatan</a></li>
                 <li><a class="nav-link" href="/pengumuman">Data Pengumuman</a></li>
               </ul>
             </li>
 
             <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Data Sekolah</span></a>
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i class="material-icons">school</i>
+              <span>Data Sekolah</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/user">Data User</a></li>
                 <li><a class="nav-link" href="/siswa">Data Siswa</a></li>

@@ -1,5 +1,5 @@
 @extends('master.main')
-@section('judul','Data Pengumuman')
+@section('judul','Data Kegiatan')
 @section('content')
 <div class="main-content">
   <section class="section">
@@ -7,10 +7,10 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h4>Data Pengumuman</h4>
+            <h4>Data Kegiatan</h4>
           </div>
           <div class="pull-left">
-            <a href="pengumuman/create" class="btn btn-icon icon-left btn-success"><i class="fa fa-plus"></i> Tambahkan Data</a>
+            <a href="kegiatan/create" class="btn btn-icon icon-left btn-success"><i class="fa fa-plus"></i> Tambahkan Data</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -18,26 +18,28 @@
                 <thead>
                   <tr>
                     <th>Action</th>
-                    <th>Judul Pengumuman</th>
-                    <th>File</th>
+                    <th>Judul Kegiatan</th>
+                    <th>Deskripsi</th>
+                    <th>Gambar</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ( $pengumuman as $pengumuman)
+                  @foreach ( $kegiatan as $kegiatan)
                     <tr>
                       <td>
-                        <a href="/pengumuman/{{ $pengumuman->idPengumuman }}/edit" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Ubah</a> 
-                        <form action="/pengumuman/{{ $pengumuman->idPengumuman }}" method="post" class="d-inline">
+                        <a href="/kegiatan/{{ $kegiatan->idKegiatan }}/edit" class="btn btn-icon icon-left btn-primary"><i class="far fa-edit"></i> Ubah</a> 
+                        <form action="/kegiatan/{{ $kegiatan->idKegiatan }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf 
                           <button type="submit" onclick="return confirm('Yakin?')" class="btn btn-icon icon-left btn-danger"><i class="fas fa-times"></i> Hapus</button>
                         </form>
                       </td>
-                      <td>{{ $pengumuman->judul}}</td>
-                      <!-- <td>{{ $pengumuman->file}}</td> -->
+                      <td>{{ $kegiatan->judul}}</td>
+                      <td>{{ $kegiatan->deskripsi}}</td>
                       <td>
-                        <a href="{{$pengumuman->file}}" width=250>Download File
+                        <img src="{{$kegiatan->gambar}}" width=100>
                       </td>
+                      <!-- <td>{{ $kegiatan->gambar}}</td> -->
                     </tr>
                   @endforeach
                 </tbody>

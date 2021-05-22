@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function(){
 Route::resource('gurumapel','GurumapelController');
 Route::resource('siswa','SiswaController');
 Route::resource('mapel','MapelController');
+Route::resource('kegiatan','KegiatanController');
 Route::resource('kritik','KritikController');
 Route::resource('pengumuman','PengumumanController');
 Route::resource('user','UserController');

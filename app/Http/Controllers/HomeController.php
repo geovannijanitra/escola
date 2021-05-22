@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Kegiatan;
+use App\Pengumuman;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $pengumuman = Pengumuman::all();
+        $kegiatan = Kegiatan::all();
+        return view('home',compact('pengumuman','kegiatan'));
     }
 }
