@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Gurumapel;
 use App\Tugas;
 use App\Mapel;
 use Illuminate\Http\Request;
 
-class MapelController extends Controller
+class TugasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $mapel = Mapel::all();
-        return view('mapel.read', compact('mapel'));
+        $tugas = Tugas::all();
+        return view('tugas.read', compact('tugas'));
     }
 
     /**
@@ -27,7 +26,8 @@ class MapelController extends Controller
      */
     public function create()
     {
-        return view('mapel.create');
+        $mapel=Mapel::all();
+        return view('tugas.create', compact('mapel'));
     }
 
     /**
@@ -38,19 +38,22 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        Mapel::create([
-            'matkul'=>$request->matkul,
+        Tugas::create([
+            'mapel_id'=>$request->idMapel,
+            'judul'=>$request->judul,
+            'deskripsi'=>$request->deskripsi,
         ]);
-        return redirect('/mapel');
+
+        return redirect('/tugas');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Tugas  $tugas
      * @return \Illuminate\Http\Response
      */
-    public function show(Mapel $mapel)
+    public function show(Tugas $tugas)
     {
         //
     }
@@ -58,39 +61,43 @@ class MapelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Tugas  $tugas
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mapel $id)
+    public function edit($id)
     {
-        $mapel=Mapel::find($id);
-        return view ('mapel.update', compact('mapel'));
+        $mapel=Mapel::all();
+        $tugas=Tugas::find($id);
+        return view('tugas.update', compact('tugas','mapel'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Tugas  $tugas
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        Mapel::where('idMapel', $id)->update([
-            'matkul' => $request->matkul,
+        Tugas::where('idTugas', $id)->update([
+            'mapel_id'=>$request->idMapel,
+            'judul'=>$request->judul,
+            'deskripsi'=>$request->deskripsi,
         ]);
-        return redirect('mapel');
+
+        return redirect('tugas');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mapel  $mapel
+     * @param  \App\Tugas  $tugas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mapel $mapel)
+    public function destroy($id)
     {
-        Mapel::destroy($mapel->idMapel);
-        return redirect('/mapel');
+        Tugas::destroy($id);
+        return redirect('/tugas');
     }
 }

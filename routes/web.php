@@ -22,7 +22,7 @@ Route::get('/', 'RedirectIfAuthenticatedController');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
-    
+
 Route::resource('gurumapel','GurumapelController');
 Route::resource('siswa','SiswaController');
 Route::resource('mapel','MapelController');
@@ -31,6 +31,7 @@ Route::resource('kritik','KritikController');
 Route::resource('pengumuman','PengumumanController');
 Route::resource('user','UserController');
 Route::resource('score','ScoreController');
+Route::resource('tugas','TugasController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 });

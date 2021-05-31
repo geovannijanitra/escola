@@ -53,30 +53,22 @@
 
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                  data-feather="briefcase"></i><span>Kelola Dashboard</span></a>
+                  data-feather="briefcase"></i><span>Kelola Admin</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/kegiatan">Data Kegiatan</a></li>
                 <li><a class="nav-link" href="/pengumuman">Data Pengumuman</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="menu-toggle nav-link has-dropdown"><i class="material-icons">school</i>
-              <span>Data Sekolah</span></a>
-              <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/user">Data User</a></li>
                 <li><a class="nav-link" href="/siswa">Data Siswa</a></li>
                 <li><a class="nav-link" href="/gurumapel">Data Guru</a></li>
                 <li><a class="nav-link" href="/mapel">Data Mata Pelajaran</a></li>
               </ul>
             </li>
-            
+
+
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Pembelajaran</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/nilai">Tugas</a></li>
-                <li><a class="nav-link" href="/nilai">Hasil Tugas</a></li>
-                <li><a class="nav-link" href="/score">Data Nilai</a></li>
+                <li><a class="nav-link" href="/tugas">Tugas</a></li>
               </ul>
             </li>
             <li>

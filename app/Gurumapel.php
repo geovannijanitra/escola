@@ -17,5 +17,5 @@ class Gurumapel extends Model
     public function mapel(){
         return $this->belongsTo('App\Mapel', 'user_id');
     }
-    
+
 }
